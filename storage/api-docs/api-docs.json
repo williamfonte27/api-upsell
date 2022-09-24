@@ -1,0 +1,107 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API",
+        "contact": {
+            "name": "Sergio Fonte",
+            "email": "william_fonte@hotmail.com"
+        },
+        "version": "1.0"
+    },
+    "paths": {
+        "/currencies/": {
+            "get": {
+                "tags": [
+                    "currencies"
+                ],
+                "operationId": "/currencies/",
+                "responses": {
+                    "200": {
+                        "description": "Returns all currencies",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error: When an internal error has occurred!"
+                    }
+                }
+            }
+        },
+        "/rates/{currency}/": {
+            "get": {
+                "tags": [
+                    "rates"
+                ],
+                "operationId": "/rates/currencyX/",
+                "parameters": [
+                    {
+                        "name": "currency",
+                        "in": "path",
+                        "description": "The currency parameter in path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns all exchange rates for the reported currency",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error: When required parameters were not supplied."
+                    }
+                }
+            }
+        },
+        "/rates-between/{currencyX}/{currencyY}/": {
+            "get": {
+                "tags": [
+                    "rates-between"
+                ],
+                "operationId": "/rates-between/currencyX/currencyY/",
+                "parameters": [
+                    {
+                        "name": "currencyX",
+                        "in": "path",
+                        "description": "The currencyX parameter in path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "currencyY",
+                        "in": "path",
+                        "description": "The currencyY parameter in path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns exchange rate between CurrencyX and CurrencyY",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Error: When required parameters were not supplied."
+                    }
+                }
+            }
+        }
+    }
+}
