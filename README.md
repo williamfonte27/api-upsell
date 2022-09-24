@@ -1,4 +1,4 @@
-# Api Coding Challenge
+# Api UpSell - Open Exchange Rates
 
 ## How to Install
 
